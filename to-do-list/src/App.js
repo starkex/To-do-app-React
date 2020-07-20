@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 import logo from './logo.svg';
-import {Button, FormControl, Input, InputLabel} from '@material-ui/core';
+import {Button, FormControl, Input, InputLabel,} from '@material-ui/core';
 import './App.css';
+import Wall from './Wall';
 
 function App() {
   const [todos, settodos] = useState(["niggas for life", "homies for life"]);
@@ -14,8 +15,12 @@ function App() {
   return (
     <div className="App">
           <h1> nigger back to life </h1>
-         {todos.map(todos=> <li>{todos}</li>)
-         }
+          <ul>
+         {todos.map(todos=> 
+         <Wall text={todos}/>
+         //<li>{todos}</li>
+         )}
+        </ul>
          <br></br>
          <FormControl>
          <InputLabel> Typer here....</InputLabel>

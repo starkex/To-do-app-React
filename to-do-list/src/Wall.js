@@ -1,11 +1,11 @@
 import React from 'react'
 
-function todo() {
+function Wall(props) {
     return (
         <div>
-            
+            <li>{props.text}</li>
         </div>
     )
 }
 
-export default todo
+export default Wall
