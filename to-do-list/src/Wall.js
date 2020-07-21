@@ -1,10 +1,13 @@
 import React from 'react'
+import { List, ListItem, ListItemText } from '@material-ui/core'
 
 function Wall(props) {
     return (
-        <div>
-            <li>{props.text}</li>
-        </div>
+       <List>
+           <ListItem >
+              <ListItemText primary="Wall" secondary={props.text}/>
+           </ListItem>
+       </List>
     )
 }
 

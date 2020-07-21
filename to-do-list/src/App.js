@@ -1,16 +1,22 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import logo from './logo.svg';
 import {Button, FormControl, Input, InputLabel,} from '@material-ui/core';
 import './App.css';
 import Wall from './Wall';
+import db from './firebase';
 
 function App() {
   const [todos, settodos] = useState(["niggas for life", "homies for life"]);
   const [input, setInput] = useState('');
-  const [pop, setpop] = useState([]);
+  useEffect(() => {
+    db.collection('Tasks').onSnapshot(snapshot =>{
+         settodos(snapshot.docs.map(doc => doc.data().todos))
+    })
+  }, [])
+
   const para = (event)=>{
     event.preventDefault();
-    setpop([pop,input]);
+    settodos([...todos,input]);
   }
   return (
     <div className="App">
@@ -23,15 +29,14 @@ function App() {
         </ul>
          <br></br>
          <FormControl>
-         <InputLabel> Typer here....</InputLabel>
+         <InputLabel> Typr here....</InputLabel>
          <Input value = { input}onChange = {event => setInput(event.target.value)}/>
          <br></br>
          <Button disabled = {!input}
          onClick = {para} > Insert it </Button>
 
          </FormControl>
-<br></br>
-         <p> {pop} </p>
+
     </div> 
   );
 }
