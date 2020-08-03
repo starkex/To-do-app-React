@@ -3,7 +3,7 @@ import { List, ListItem, ListItemText } from '@material-ui/core'
 
 function Wall(props) {
     return (
-       <List>
+       <List className="sup">
            <ListItem >
               <ListItemText primary="Task" secondary={props.text}/>
            </ListItem>

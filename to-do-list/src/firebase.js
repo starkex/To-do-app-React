@@ -10,7 +10,7 @@
 };
 */
 
-import firebase from "firebase" ;
+import firebase from 'firebase' ;
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyAIB5UZzRqJm_nk6x_g3mhaR87X_OYBxaM",
      authDomain: "to-do-react-d8ae5.firebaseapp.com",
