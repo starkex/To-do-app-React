@@ -3,13 +3,13 @@ import logo from './logo.svg';
 import {Button, FormControl, Input, InputLabel,} from '@material-ui/core';
 import './App.css';
 import Wall from './Wall';
-import db from './firebase';
+import Todos from './firebase';
 
 function App() {
-  const [todos, settodos] = useState(["niggas for life", "homies for life"]);
+  const [todos, settodos] = useState([]);
   const [input, setInput] = useState('');
   useEffect(() => {
-    db.collection('Tasks').onSnapshot(snapshot =>{
+    Todos.collection('Tasks').onSnapshot(snapshot =>{
          settodos(snapshot.docs.map(doc => doc.data().todos))
     })
   }, [])

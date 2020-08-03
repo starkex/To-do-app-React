@@ -22,5 +22,5 @@ const firebaseApp = firebase.initializeApp({
      measurementId: "G-65ZKTGBKQV"
 });
 
-const db = firebaseApp.firestore();
-export default db;
+const Todos = firebaseApp.firestore();
+export default Todos;

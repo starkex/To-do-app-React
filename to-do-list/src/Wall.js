@@ -5,7 +5,7 @@ function Wall(props) {
     return (
        <List>
            <ListItem >
-              <ListItemText primary="Wall" secondary={props.text}/>
+              <ListItemText primary="Task" secondary={props.text}/>
            </ListItem>
        </List>
     )
