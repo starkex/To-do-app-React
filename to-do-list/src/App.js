@@ -16,7 +16,14 @@ function App() {
 
   const para = (event)=>{
     event.preventDefault();
+     
+     Todos.collection('Todos').add({
+       todo:input
+     })
+
     settodos([...todos,input]);
+    setInput('');
+
   }
   return (
     <div className="App">
