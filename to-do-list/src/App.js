@@ -4,12 +4,13 @@ import {Button, FormControl, Input, InputLabel,} from '@material-ui/core';
 import './App.css';
 import Wall from './Wall';
 import Todos from './firebase';
+import firebase from 'firebase';
 
 function App() {
   const [todos, settodos] = useState([]);
   const [input, setInput] = useState('');
   useEffect(() => {
-    Todos.collection('Tasks').onSnapshot(snapshot =>{
+    Todos.collection('Tasks').orderBy('timestamp','desc').onSnapshot(snapshot =>{
          settodos(snapshot.docs.map(doc => doc.data().todos))
     })
   }, [])
@@ -18,7 +19,8 @@ function App() {
     event.preventDefault();
      
      Todos.collection('Todos').add({
-       todo:input
+       todo:input,
+       timestamp: firebase.firestore.FieldValue.serverTimestamp()
      })
 
     settodos([...todos,input]);
