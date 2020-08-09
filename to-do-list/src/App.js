@@ -11,7 +11,7 @@ function App() {
   const [input, setInput] = useState('');
   useEffect(() => {
     Todos.collection('Tasks').orderBy('timestamp','desc').onSnapshot(snapshot =>{
-         settodos(snapshot.docs.map(doc => doc.data().todos))
+         settodos(snapshot.docs.map({id: doc.id, todos:doc => doc.data().todos}))
     })
   }, [])
 
