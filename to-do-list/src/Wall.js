@@ -1,22 +1,33 @@
 import React from 'react'
-import { List, ListItem, ListItemText, Button } from '@material-ui/core'
+import { List, ListItem, ListItemText, Button, Modal } from '@material-ui/core'
 import db from './firebase'
+import Todos from './firebase';
 
 function Wall(props) {
+    const [open, setOpen] = useState(false);
+       
+    const handleOpen = ()=> {
+       setOpen(true);
+    };    
+      const handleClose =() =>{
+          setOpen(false);
+      };
+        return () => {
+            
+           };
+    }, [input])
     return(
-  
+  <React.Fragment>
+        <Modal open={open} onClose={e => setOpen(false)}></Modal>
          <List className="sup">
                         <ListItem >
                            <ListItemText primary="Task" secondary={props.text}/>
                         </ListItem>
                     </List>
-        
+        <button onClick={e => Edit }></button>
+        </React.Fragment>
     );
-                
                
 }
-/*    <React.Fragment>
-<Button onClick={event => {db.collection('todos').doc(props.todos.id).delete()}}> Delete</Button>
-        </React.Fragment>
-*/
-        export default Wall
+
+export default Wall
