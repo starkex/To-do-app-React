@@ -21,6 +21,7 @@ function App() {
      Todos.collection('Todos').add({
        todo:input,
        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+       //firestore
      })
 
     settodos([...todos,input]);
