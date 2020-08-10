@@ -30,10 +30,10 @@ function App() {
   }
   return (
     <div className="App">
-          <h1> nigger back to life </h1>
+          <h1> Set Your Tasks Here !! </h1>
           <ul>
-         {todos.map(todos=> 
-         <Wall todo={todos}/>
+         {todos.map(todo=> 
+         <Wall text={todo}/>
          //<li>{todos}</li>
          )}
          </ul>

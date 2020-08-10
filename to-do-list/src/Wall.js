@@ -4,17 +4,19 @@ import db from './firebase'
 
 function Wall(props) {
     return(
-        <React.Fragment>
+  
          <List className="sup">
                         <ListItem >
-                           <ListItemText primary={props.todo.todo} secondary="Task"/>
+                           <ListItemText primary="Task" secondary={props.text}/>
                         </ListItem>
                     </List>
-        <Button onClick={event => {db.collection('todos').doc(props.todos.id).delete()}}> Delete</Button>
-        </React.Fragment>
+        
     );
                 
                
 }
-
-export default Wall
+/*    <React.Fragment>
+<Button onClick={event => {db.collection('todos').doc(props.todos.id).delete()}}> Delete</Button>
+        </React.Fragment>
+*/
+        export default Wall
